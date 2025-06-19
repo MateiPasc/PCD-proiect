@@ -114,12 +114,26 @@ make info
 ```
 
 ### 📋 Cerințe de Sistem
-```bash
-# Ubuntu/Debian
-sudo apt-get install build-essential libclamav-dev libncurses5-dev
 
-# Pentru Windows client
-pip install socket cryptography
+**Ubuntu/Linux:**
+```bash
+sudo apt-get install build-essential libclamav-dev libncurses5-dev libssl-dev
+```
+
+**macOS:**
+```bash
+# Setup automat complet
+make setup-macos
+
+# Sau manual
+brew install clamav ncurses openssl pkg-config python3
+pip3 install cryptography
+```
+
+**Windows:**
+```bash
+# Pentru clientul Python GUI
+pip install cryptography tkinter
 ```
 
 ### Compilare
@@ -128,6 +142,8 @@ make all
 ```
 
 ### Rulare
+
+**Linux/VirtualBox:**
 ```bash
 # 1. Pornire server
 ./bin/antivirus_server
@@ -140,6 +156,21 @@ make all
 
 # 4. Client Windows
 cd src/windows_client && python windows_client.py
+```
+
+**macOS:**
+```bash
+# Setup automat și demo
+make setup-macos
+
+# Sau demo manual cu multiple tab-uri Terminal
+make demo-macos
+
+# Sau manual în tab-uri separate (CMD+T):
+# Tab 1: ./bin/antivirus_server
+# Tab 2: ./bin/admin_client
+# Tab 3: ./bin/ordinary_client
+# Tab 4: cd src/windows_client && python3 windows_client.py
 ```
 
 ## Structura Directoare

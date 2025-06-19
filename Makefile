@@ -212,6 +212,21 @@ demo-virtualbox: all
 	chmod +x scripts/demo_virtualbox.sh
 	./scripts/demo_virtualbox.sh
 
+# macOS setup and demo
+setup-macos:
+	@echo "$(GREEN)Setting up development environment for macOS...$(NC)"
+	@mkdir -p scripts
+	chmod +x scripts/setup_macos.sh
+	./scripts/setup_macos.sh
+
+demo-macos: all
+	@echo "$(GREEN)Starting macOS demo...$(NC)"
+	@echo "Open multiple Terminal tabs (CMD+T) and run:"
+	@echo "  Tab 1: ./bin/antivirus_server"
+	@echo "  Tab 2: ./bin/admin_client" 
+	@echo "  Tab 3: ./bin/ordinary_client"
+	@echo "  Tab 4: cd src/windows_client && python3 windows_client.py"
+
 # Test scenario (automated testing)
 test-scenario: all
 	@echo "$(YELLOW)Running automated test scenario...$(NC)"
@@ -245,6 +260,8 @@ help:
 	@echo "  package      - Create submission package"
 	@echo "  demo         - Setup demo environment"
 	@echo "  demo-virtualbox - Interactive VirtualBox demo"
+	@echo "  setup-macos  - Setup development environment for macOS"
+	@echo "  demo-macos   - Run demo on macOS with multiple terminals"
 	@echo "  test-scenario - Run automated test scenario"
 	@echo "  help         - Show this help"
 
@@ -268,4 +285,4 @@ info:
 .PHONY: all directories server admin client clean clean-logs clean-all install-deps python-deps
 .PHONY: run-server run-admin run-client run-python debug-server debug-admin debug-client
 .PHONY: release test memcheck-server memcheck-admin memcheck-client static-analysis format docs
-.PHONY: package demo demo-virtualbox test-scenario help info 
+.PHONY: package demo demo-virtualbox setup-macos demo-macos test-scenario help info 
