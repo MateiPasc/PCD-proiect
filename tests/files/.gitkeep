@@ -1,0 +1,2 @@
+# This file ensures the tests/files/ directory is tracked by git
+# Test files are ignored by .gitignore but the directory structure is preserved 
